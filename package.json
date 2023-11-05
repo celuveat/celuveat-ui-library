@@ -24,7 +24,9 @@
   "scripts": {
     "dev": "rollup -c --watch",
     "build": "rollup -c",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "repository": {
     "type": "git",
@@ -47,14 +49,26 @@
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@rollup/plugin-terser": "^0.4.4",
     "@rollup/plugin-typescript": "^11.1.5",
+    "@storybook/addon-essentials": "^7.5.2",
+    "@storybook/addon-interactions": "^7.5.2",
+    "@storybook/addon-links": "^7.5.2",
+    "@storybook/addon-onboarding": "^1.0.8",
+    "@storybook/blocks": "^7.5.2",
+    "@storybook/react": "^7.5.2",
+    "@storybook/react-webpack5": "^7.5.2",
+    "@storybook/testing-library": "^0.0.14-next.2",
     "@types/react": "^18.2.34",
     "@types/react-dom": "^18.2.14",
     "postcss": "^8.4.31",
+    "prop-types": "^15.8.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "rollup": "^4.2.0",
     "rollup-plugin-dts": "^6.1.0",
     "rollup-plugin-minification": "^0.2.0",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-postcss": "^4.0.2",
+    "storybook": "^7.5.2",
     "tslib": "^2.6.2",
     "typescript": "^5.2.2"
   },
