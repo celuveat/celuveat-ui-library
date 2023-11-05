@@ -1,6 +1,6 @@
 {
   "name": "celuveat-ui-library",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "셀럽잇 UI 라이브러리",
   "keywords": [
     "UI",
@@ -11,15 +11,10 @@
   "type": "module",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
+  "types": "dist/types/index.d.ts",
   "files": [
     "dist"
   ],
-  "types": "dist/types/index.d.ts",
-  "exports": {
-    "types": "./dist/index.d.ts",
-    "import": "./dist/esm/index.js",
-    "require": "./dist/cjs/index.js"
-  },
   "scripts": {
     "dev": "rollup -c --watch",
     "build": "rollup -c",
