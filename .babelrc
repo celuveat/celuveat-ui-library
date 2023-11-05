@@ -1,0 +1,23 @@
+{
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "targets": {
+          "chrome": 100,
+          "safari": 15,
+          "firefox": 91
+        }
+      }
+    ],
+
+    [
+      "@babel/preset-react",
+      {
+        "runtime": "automatic"
+      }
+    ]
+  ],
+
+  "plugins": [["@babel/plugin-transform-runtime", { "regenerator": true }]]
+}

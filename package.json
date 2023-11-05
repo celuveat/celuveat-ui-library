@@ -1,0 +1,64 @@
+{
+  "name": "celuveat-ui-library",
+  "version": "1.0.0",
+  "description": "셀럽잇 UI 라이브러리",
+  "keywords": [
+    "UI",
+    "react",
+    "celuveat",
+    "dropdown"
+  ],
+  "type": "module",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "files": [
+    "dist"
+  ],
+  "types": "dist/types/index.d.ts",
+  "exports": {
+    "types": "./dist/index.d.ts",
+    "import": "./dist/esm/index.js",
+    "require": "./dist/cjs/index.js"
+  },
+  "scripts": {
+    "dev": "rollup -c --watch",
+    "build": "rollup -c",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/celuveat/celuveat-ui-library.git"
+  },
+  "author": "turtle601",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/celuveat/celuveat-ui-library/issues"
+  },
+  "homepage": "https://github.com/celuveat/celuveat-ui-library#readme",
+  "devDependencies": {
+    "@babel/core": "^7.23.2",
+    "@babel/plugin-transform-runtime": "^7.23.2",
+    "@babel/preset-env": "^7.23.2",
+    "@babel/preset-react": "^7.22.15",
+    "@babel/preset-typescript": "^7.23.2",
+    "@rollup/plugin-babel": "^6.0.4",
+    "@rollup/plugin-commonjs": "^25.0.7",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-terser": "^0.4.4",
+    "@rollup/plugin-typescript": "^11.1.5",
+    "@types/react": "^18.2.34",
+    "@types/react-dom": "^18.2.14",
+    "postcss": "^8.4.31",
+    "rollup": "^4.2.0",
+    "rollup-plugin-dts": "^6.1.0",
+    "rollup-plugin-minification": "^0.2.0",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-postcss": "^4.0.2",
+    "tslib": "^2.6.2",
+    "typescript": "^5.2.2"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}
