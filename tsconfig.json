@@ -32,8 +32,9 @@
     "noFallthroughCasesInSwitch": true /* Enable error reporting for fallthrough cases in switch statements. */,
     "noUncheckedIndexedAccess": true /* Add 'undefined' to a type when accessed using an index. */,
     "allowUnreachableCode": false /* Disable error reporting for unreachable code. */,
-
+    "moduleDetection": "force",
     /* Completeness */
-    "skipLibCheck": true /* Skip type checking all .d.ts files. */
+    "skipLibCheck": true /* Skip type checking all .d.ts files. */,
+    "types": ["jest"]
   }
 }
