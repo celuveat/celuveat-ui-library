@@ -1,4 +1,8 @@
-import React, { ComponentPropsWithoutRef, ElementType } from 'react';
+import React, {
+  ComponentPropsWithoutRef,
+  CSSProperties,
+  ElementType,
+} from 'react';
 
 export const getCustomChildren = <
   T extends ComponentPropsWithoutRef<ElementType>
@@ -7,14 +11,13 @@ export const getCustomChildren = <
   actionProps: T
 ): React.ReactElement => {
   const child = React.Children.only(children);
-  const { style: styleProps, ...restProps } = actionProps;
+  const defaultStyle: CSSProperties = actionProps.style;
 
   if (!React.isValidElement<T>(child))
     throw Error('React Child is not a React Element');
 
   return React.cloneElement(child, {
-    ...restProps,
-    ...styleProps,
-    ...child.props.style,
+    ...actionProps,
+    style: { ...defaultStyle, ...child.props.style },
   });
 };
