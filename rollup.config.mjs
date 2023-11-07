@@ -38,6 +38,7 @@ export default [
 
       postcss({ extensions: ['.css'], inject: true, extract: false }),
     ],
+    external: ['react', 'react-dom', /@babel\/runtime/],
   },
   {
     input: 'dist/esm/types/index.d.ts',
