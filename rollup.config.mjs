@@ -11,6 +11,7 @@ const extensions = ['.ts', '.tsx', '.js', '.jsx'];
 export default [
   {
     input: 'src/index.ts',
+    external: ['react-dom'],
     output: [
       {
         file: packageJson.main,
@@ -38,12 +39,11 @@ export default [
 
       postcss({ extensions: ['.css'], inject: true, extract: false }),
     ],
-    external: ['react', 'react-dom', /@babel\/runtime/],
   },
   {
     input: 'dist/esm/types/index.d.ts',
     output: [{ file: 'dist/index.d.ts', format: 'esm' }],
     plugins: [dts()],
-    external: [/\.css$/],
+    external: [/\.css$/, 'react', 'react-dom'],
   },
 ];
