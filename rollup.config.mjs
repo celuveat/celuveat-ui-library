@@ -2,6 +2,7 @@ import babel from '@rollup/plugin-babel';
 import commonjs from '@rollup/plugin-commonjs';
 import resolve from '@rollup/plugin-node-resolve';
 import typescript from '@rollup/plugin-typescript';
+import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 import dts from 'rollup-plugin-dts';
 import postcss from 'rollup-plugin-postcss';
 import packageJson from './package.json' assert { type: 'json' };
@@ -23,8 +24,8 @@ export default [
         sourcemap: true,
       },
     ],
-    external: ['react', 'react-dom'],
     plugins: [
+      peerDepsExternal(),
       babel({
         babelHelpers: 'runtime',
         exclude: 'node_modules/**',
@@ -38,6 +39,7 @@ export default [
       }),
       postcss({ extensions: ['.css'], inject: true, extract: false }),
     ],
+    external: ['react', 'react-dom'],
   },
   {
     input: 'dist/esm/types/index.d.ts',
