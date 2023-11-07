@@ -1,8 +1,4 @@
-import React, {
-  ComponentPropsWithoutRef,
-  CSSProperties,
-  ElementType,
-} from 'react';
+import React, { ComponentPropsWithoutRef, ElementType } from 'react';
 
 export const getCustomChildren = <
   T extends ComponentPropsWithoutRef<ElementType>
@@ -11,7 +7,7 @@ export const getCustomChildren = <
   actionProps: T
 ): React.ReactElement => {
   const child = React.Children.only(children);
-  const defaultStyle: CSSProperties = actionProps.style;
+  const defaultStyle = actionProps.style;
 
   if (!React.isValidElement<T>(child))
     throw Error('React Child is not a React Element');
