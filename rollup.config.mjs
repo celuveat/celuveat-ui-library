@@ -11,7 +11,6 @@ const extensions = ['.ts', '.tsx', '.js', '.jsx'];
 export default [
   {
     input: 'src/index.ts',
-    external: ['react-dom'],
     output: [
       {
         file: packageJson.main,
@@ -24,6 +23,7 @@ export default [
         sourcemap: true,
       },
     ],
+    external: ['react', 'react-dom'],
     plugins: [
       babel({
         babelHelpers: 'runtime',
@@ -36,7 +36,6 @@ export default [
         tsconfig: './tsconfig.json',
         exclude: ['**/*.test.tsx', '**/*.test.ts', '**/*.stories.ts'],
       }),
-
       postcss({ extensions: ['.css'], inject: true, extract: false }),
     ],
   },
