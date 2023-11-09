@@ -19,10 +19,12 @@ const Options = <T extends ElementType = 'div'>({
   const { isOpen } = useDropDown();
 
   if (isCustom) {
-    return getCustomChildren(children, {
-      className: 'options',
-      ...rest,
-    });
+    return isOpen
+      ? getCustomChildren(children, {
+          className: 'options',
+          ...rest,
+        })
+      : null;
   }
 
   return isOpen ? (
