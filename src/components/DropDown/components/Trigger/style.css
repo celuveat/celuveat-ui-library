@@ -1,0 +1,13 @@
+.trigger {
+  width: 100px;
+  height: 50px;
+  outline: none;
+  border: none;
+  background-color: transparent;
+  border-radius: 5px;
+  box-shadow: 0 1px 16px 0 rgb(66 66 66 / 10%);
+}
+
+.trigger:hover {
+  background: #e0e0e0;
+}

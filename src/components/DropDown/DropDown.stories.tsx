@@ -7,7 +7,7 @@ const DropDownExample = () => {
       <DropDown.Trigger>trigger</DropDown.Trigger>
       <DropDown.Options>
         <DropDown.Option isCustom>
-          <li style={{ background: 'red' }}>DROP_DOWN_ITEMS</li>
+          <li>DROP_DOWN_ITEMS</li>
         </DropDown.Option>
         <DropDown.Option>DROP_DOWN_ITEMS</DropDown.Option>
       </DropDown.Options>

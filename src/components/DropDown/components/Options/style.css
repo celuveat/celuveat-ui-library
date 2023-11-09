@@ -1,0 +1,15 @@
+.options {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  z-index: 1000;
+
+  width: 200px;
+
+  top: 60px;
+  left: 0px;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 1px 16px 0 rgb(66 66 66 / 10%);
+}

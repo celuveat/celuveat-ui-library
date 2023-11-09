@@ -1,30 +1,17 @@
-import {
-  ComponentPropsWithoutRef,
-  CSSProperties,
-  PropsWithChildren,
-  useRef,
-} from 'react';
+import { ComponentPropsWithoutRef, PropsWithChildren, useRef } from 'react';
 import { getCustomChildren } from '../../../../utils/getCustomChildren';
 import { useDropDown } from '../../hooks/useDropDownContext';
 import useOnClickOutside from '../../hooks/useOnClickOutside';
 
+import './style.css';
+
 export interface TriggerProps extends ComponentPropsWithoutRef<'button'> {
   isCustom?: boolean;
-  width?: CSSProperties['width'];
-  height?: CSSProperties['height'];
-  bgColor?: CSSProperties['backgroundColor'];
-  borderRadius?: CSSProperties['borderRadius'];
-  shadow?: CSSProperties['boxShadow'];
   externalClick?: VoidFunction;
 }
 
 export const Trigger = ({
   isCustom,
-  width = '100px',
-  height = '50px',
-  bgColor = 'transparent',
-  borderRadius = '5px',
-  shadow = '0 1px 16px 0 rgb(66 66 66 / 10%)',
   children,
   externalClick,
   ...rest
@@ -33,16 +20,6 @@ export const Trigger = ({
 
   const triggerRef = useRef<HTMLButtonElement | null>(null);
   useOnClickOutside<HTMLButtonElement>(triggerRef, close);
-
-  const styledElement = {
-    width,
-    height,
-    borderRadius,
-    outline: 'none',
-    border: 'none',
-    backgroundColor: bgColor,
-    boxShadow: shadow,
-  };
 
   const onClickTrigger = () => {
     toggle();
@@ -53,9 +30,7 @@ export const Trigger = ({
 
   if (isCustom) {
     return getCustomChildren(children, {
-      style: {
-        ...styledElement,
-      },
+      className: 'trigger',
       onClick: onClickTrigger,
       ...rest,
     });
@@ -64,7 +39,6 @@ export const Trigger = ({
   return (
     <button
       ref={triggerRef}
-      style={{ ...styledElement }}
       className="trigger"
       onClick={onClickTrigger}
       {...rest}

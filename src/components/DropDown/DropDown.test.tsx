@@ -72,7 +72,7 @@ describe('DropDown 컴포넌트 테스트', () => {
     const item = await waitFor(() => screen.getByText('DROP_DOWN_ITEMS'));
     expect(item).toBeInTheDocument();
 
-    userEvent.click();
+    userEvent.click(button);
     await waitForElementToBeRemoved(() => screen.getByText('DROP_DOWN_ITEMS'));
 
     const disappearedElement = screen.queryByText('DROP_DOWN_ITEMS');

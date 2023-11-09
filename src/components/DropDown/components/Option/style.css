@@ -1,0 +1,8 @@
+.option {
+  padding: 1rem;
+  background: transparent;
+}
+
+.option:hover {
+  background: #e0e0e0;
+}

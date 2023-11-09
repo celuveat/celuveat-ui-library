@@ -7,13 +7,13 @@ export const getCustomChildren = <
   actionProps: T
 ): React.ReactElement => {
   const child = React.Children.only(children);
-  const defaultStyle = actionProps.style;
+  const defaultStyle = actionProps.className || '';
 
   if (!React.isValidElement<T>(child))
     throw Error('React Child is not a React Element');
 
   return React.cloneElement(child, {
     ...actionProps,
-    style: { ...defaultStyle, ...child.props.style },
+    className: `${defaultStyle} ${child.props.className || ''}`,
   });
 };
