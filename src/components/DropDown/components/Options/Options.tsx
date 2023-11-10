@@ -21,7 +21,6 @@ const Options = <T extends ElementType = 'div'>({
   if (isCustom) {
     return isOpen
       ? getCustomChildren(children, {
-          className: 'options',
           ...rest,
         })
       : null;

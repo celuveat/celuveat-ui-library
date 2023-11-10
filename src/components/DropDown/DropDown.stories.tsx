@@ -1,14 +1,14 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import DropDown from '.';
 
+import './style.css';
+
 const DropDownExample = () => {
   return (
     <DropDown>
       <DropDown.Trigger>trigger</DropDown.Trigger>
       <DropDown.Options>
-        <DropDown.Option isCustom>
-          <li>DROP_DOWN_ITEMS</li>
-        </DropDown.Option>
+        <DropDown.Option isCustom></DropDown.Option>
         <DropDown.Option>DROP_DOWN_ITEMS</DropDown.Option>
       </DropDown.Options>
     </DropDown>

@@ -31,7 +31,6 @@ export const Trigger = ({
   if (isCustom) {
     return getCustomChildren(children, {
       ref: triggerRef,
-      className: 'trigger',
       onClick,
       ...rest,
     });
