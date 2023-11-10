@@ -21,7 +21,7 @@ export const Trigger = ({
   const triggerRef = useRef<HTMLButtonElement | null>(null);
   useOnClickOutside<HTMLButtonElement>(triggerRef, close);
 
-  const onClickTrigger = () => {
+  const onClick = () => {
     toggle();
 
     if (!externalClick) return;
@@ -30,19 +30,15 @@ export const Trigger = ({
 
   if (isCustom) {
     return getCustomChildren(children, {
+      ref: triggerRef,
       className: 'trigger',
-      onClick: onClickTrigger,
+      onClick,
       ...rest,
     });
   }
 
   return (
-    <button
-      ref={triggerRef}
-      className="trigger"
-      onClick={onClickTrigger}
-      {...rest}
-    >
+    <button ref={triggerRef} className="trigger" onClick={onClick} {...rest}>
       {children}
     </button>
   );
