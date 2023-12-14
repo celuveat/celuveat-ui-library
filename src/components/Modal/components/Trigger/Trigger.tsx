@@ -8,6 +8,15 @@ export interface TriggerProps {
 const Trigger = ({ as }: TriggerProps) => {
   const { openModal } = useContext(ModalContext);
 
+  if (as.props.onClick) {
+    const onClick = () => {
+      as.props.onClick();
+      openModal();
+    };
+
+    return cloneElement(as, { onClick });
+  }
+
   return cloneElement(as, { onClick: openModal });
 };
 
