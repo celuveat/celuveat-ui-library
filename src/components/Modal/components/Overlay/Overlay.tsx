@@ -1,18 +1,14 @@
-import { ReactElement, cloneElement, useContext } from 'react';
-import { createPortal } from 'react-dom';
-import { ModalContext } from '../../hooks/useModalContext';
+import { ReactElement, cloneElement } from 'react';
+import useModalStore from '../../store/useModalStore';
+
 export interface OverlayProps {
   as: ReactElement;
-  portalId: string;
 }
 
-const Overlay = ({ as, portalId }: OverlayProps) => {
-  const { isModalOpen, closeModal } = useContext(ModalContext);
-  const portal = document.getElementById(portalId);
+const Overlay = ({ as }: OverlayProps) => {
+  const { closeModal } = useModalStore();
 
-  return isModalOpen && portal
-    ? createPortal(cloneElement(as, { onClick: closeModal }), portal)
-    : null;
+  return cloneElement(as, { onClick: closeModal });
 };
 
 export default Overlay;

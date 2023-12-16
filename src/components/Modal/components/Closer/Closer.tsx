@@ -1,12 +1,12 @@
-import { ReactElement, cloneElement, useContext } from 'react';
-import { ModalContext } from '../../hooks/useModalContext';
+import { ReactElement, cloneElement } from 'react';
+import useModalStore from '../../store/useModalStore';
 
 export interface CloserProps {
   as: ReactElement;
 }
 
 const Closer = ({ as }: CloserProps) => {
-  const { closeModal } = useContext(ModalContext);
+  const { closeModal } = useModalStore();
 
   if (as.props.onClick) {
     const onClick = () => {

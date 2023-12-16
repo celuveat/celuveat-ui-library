@@ -1,17 +1,17 @@
-import { ReactElement, cloneElement, useContext } from 'react';
-import { ModalContext } from '../../hooks/useModalContext';
+import { ReactElement, cloneElement } from 'react';
+import useModalStore from '../../store/useModalStore';
 
 export interface TriggerProps {
   as: ReactElement;
 }
 
 const Trigger = ({ as }: TriggerProps) => {
-  const { openModal } = useContext(ModalContext);
+  const { openModal } = useModalStore();
 
   if (as.props.onClick) {
     const onClick = () => {
       as.props.onClick();
-      openModal();
+      openModal({ content: null });
     };
 
     return cloneElement(as, { onClick });

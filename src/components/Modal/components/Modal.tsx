@@ -1,18 +1,17 @@
-import { ReactNode } from 'react';
-import useModalState from '../hooks/useModalState';
-import { ModalContext } from '../hooks/useModalContext';
+import { createPortal } from 'react-dom';
+import useModalStore from '../store/useModalStore';
 
-export interface ModalProps {
-  isOpen?: boolean;
-  children: ReactNode;
+export interface Props {
+  portalId?: string;
 }
 
-const Modal = ({ isOpen = false, children }: ModalProps) => {
-  const value = useModalState(isOpen);
+const Modal = ({ portalId = 'root' }: Props) => {
+  const { isModalOpen, currentModalContent } = useModalStore();
+  const portal = document.getElementById(portalId);
 
-  return (
-    <ModalContext.Provider value={value}>{children}</ModalContext.Provider>
-  );
+  return isModalOpen && portal
+    ? createPortal(currentModalContent, portal)
+    : null;
 };
 
 export default Modal;
