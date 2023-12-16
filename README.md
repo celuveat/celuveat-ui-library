@@ -1,5 +1,13 @@
 # Celuveat-ui-library
 
+## Installation
+
+```terminal
+npm install celuveat-ui-library
+or
+yarn add celuveat-ui-library
+```
+
 ## 라이브러리 동작 환경
 
 ```
@@ -65,52 +73,45 @@ Option
 ## Modal
 
 ```tsx
-<Modal>
-  <Modal.Trigger as={<StyledButton>open!</StyledButton>} />
-  <Modal.Overlay portalId='portal' as={<StyledOverlay />} />
-  <Modal.Content portalId='portal'>
-    <Modal.Closer as={<StyledExitButton>X</StyledExitButton>} />
-  </Modal.Content>
-</Modal>
+ReactDOM.createRoot(document.getElementById('root')!).render(
+  <React.StrictMode>
+    <App />
+    <Modal portalId='portal' />
+  </React.StrictMode>
+);
 ```
 
-### 사용법
+### Modal
 
-Modal
+isModalOpen의 상태에 따라 모달을 돔에 부착시켜주는 컴포넌트입니다.
 
-- isModalOpen의 상태에 따라 모달을 돔에 부착시켜주는 컴포넌트입니다.
+- portalId : 모달을 부착시킬 DOM element의 id를 입력받습니다. 기본값은 'root'입니다. 전역상태 isModalOpen을 통해 createPortal을 통해 모달을 마운트하기때문에 최상위 컴포넌트에서 한번만 호출하는걸 권장드립니다.
 
-```tsx
-portalId : 모달을 부착시킬 DOM element의 id를 입력받습니다. 기본값은 'root'입니다. 전역상태 isModalOpen을 통해 createPortal을 통해 모달을 마운트하기때문에 최상위 컴포넌트에서 한번만 호출하는걸 권장드립니다.
+### Trigger
+
+모달을 열어주는 컴포넌트입니다.
+
+- as : ReactElement를 인자로 받아 클릭시 모달을 열어주는 함수를 부착하여 반환합니다.
+
+### Overlay
+
+- as : 모달의 Backdrop 역할을 하는 함수입니다. ReactElement를 인자로 받아 클릭시 모달을 닫아주는 함수를 부착하여 반환합니다.
+
+### Closer
+
+- as : ReactElement를 인자로 받아 클릭시 모달을 닫아주는 함수를 부착하여 반환합니다.
+
+### useModal
+
+```ts
+const { openModal, closeModal } = useModal();
 ```
 
-Trigger
+- openModal : 모달을 열어주는 함수입니다.
+- closeModal : 모달을 닫아주는 함수입니다.
 
-- 모달을 열어주는 컴포넌트입니다.
+## Dependencies
 
-```tsx
-as : ReactElement를 인자로 받아 클릭시 모달을 열어주는 함수를 부착하여 반환합니다.
 ```
-
-Overlay
-
-```tsx
-as : 모달의 Backdrop 역할을 하는 함수입니다. ReactElement를 인자로 받아 클릭시 모달을 닫아주는 함수를 부착하여 반환합니다.
-```
-
-Closer
-
-```tsx
-as : ReactElement를 인자로 받아 클릭시 모달을 닫아주는 함수를 부착하여 반환합니다.
-```
-
-useModal
-
-```tsx
-{ isModalOpen, currentModalContent, openModal, closeModal } = useModal();
-
-isModalOpen : boolean
-currentModalContent : ReactNode, 돔에 부착되는 모달 컨텐츠입니다.(Overlay, Contents)
-openModal : isModalOpen를 true로 만들어줍니다.
-closeModal : isModalOpen를 false로 만들어줍니다.
+zustand
 ```
