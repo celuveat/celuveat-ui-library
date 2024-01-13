@@ -22,7 +22,7 @@ function OpenButton({
   };
 
   return isCustom ? (
-    getCustomChildren(children, { onClick: { open }, ...rest })
+    getCustomChildren(children, { onClick: open, ...rest })
   ) : (
     <button className="open-button" onClick={open}>
       {children}

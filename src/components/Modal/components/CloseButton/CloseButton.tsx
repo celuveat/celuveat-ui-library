@@ -12,7 +12,7 @@ function CloseButton({ isCustom, children, ...rest }: CloseButtonProps) {
   }));
 
   return isCustom ? (
-    getCustomChildren(children, { onClick: { closeModal }, ...rest })
+    getCustomChildren(children, { onClick: closeModal, ...rest })
   ) : (
     <button className="close-button">{children}</button>
   );

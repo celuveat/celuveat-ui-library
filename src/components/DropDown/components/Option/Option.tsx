@@ -25,6 +25,7 @@ const Option = <T extends ElementType = 'div'>({
 
   if (isCustom) {
     return getCustomChildren(children, {
+      onClick: externalClick,
       ...rest,
     });
   }
