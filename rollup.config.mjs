@@ -28,7 +28,7 @@ export default [
     ],
     plugins: [
       url(),
-      svgr(),
+      svgr({ icon: true }),
       peerDepsExternal(),
       babel({
         babelHelpers: 'runtime',
