@@ -8,9 +8,15 @@ import { useModalStore } from '../hooks/modal';
 
 interface ModalProps {
   portalElementId: string;
+  isBottom?: boolean;
+  blockScrollOnMount?: boolean;
 }
 
-function Modal({ portalElementId }: ModalProps) {
+function Modal({
+  portalElementId,
+  isBottom = false,
+  blockScrollOnMount = false,
+}: ModalProps) {
   const { isOpen, content } = useModalStore((state) => ({
     content: state.content,
     isOpen: state.isOpen,
@@ -21,7 +27,10 @@ function Modal({ portalElementId }: ModalProps) {
       {createPortal(
         <>
           {isOpen && (
-            <Wrapper>
+            <Wrapper
+              isBottom={isBottom}
+              blockScrollOnMount={blockScrollOnMount}
+            >
               <Overlay />
               <Content>{content}</Content>
             </Wrapper>
