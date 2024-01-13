@@ -1,10 +1,15 @@
 import { createPortal } from 'react-dom';
+import { styled } from 'styled-components';
 
 import Content from './Content';
 import Overlay from './Overlay';
 import Wrapper from './Wrapper';
 
 import { useModalStore } from '../hooks/modal';
+import Flex from '../../layout/Flex';
+import CloseButton from './CloseButton';
+
+import ExitIcon from '../../../assets/Icon/exit.svg';
 
 interface ModalProps {
   portalElementId: string;
@@ -17,7 +22,8 @@ function Modal({
   isBottom = false,
   blockScrollOnMount = false,
 }: ModalProps) {
-  const { isOpen, content } = useModalStore((state) => ({
+  const { isOpen, content, title } = useModalStore((state) => ({
+    title: state.title,
     content: state.content,
     isOpen: state.isOpen,
   }));
@@ -32,7 +38,15 @@ function Modal({
               blockScrollOnMount={blockScrollOnMount}
             >
               <Overlay />
-              <Content>{content}</Content>
+              <Content>
+                <Flex justify="space-between" align="center">
+                  <StyledModalTitle>{title}</StyledModalTitle>
+                  <CloseButton isCustom>
+                    <ExitIcon />
+                  </CloseButton>
+                </Flex>
+                <div>{content}</div>
+              </Content>
             </Wrapper>
           )}
         </>,
@@ -43,3 +57,8 @@ function Modal({
 }
 
 export default Modal;
+
+const StyledModalTitle = styled.h3`
+  font-size: 24px;
+  line-height: 32px;
+`;

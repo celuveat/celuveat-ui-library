@@ -4,11 +4,13 @@ import { useModalStore } from '../../hooks/modal';
 
 interface OpenButtonProps extends ComponentPropsWithoutRef<'button'> {
   isCustom?: boolean;
+  title: string;
   modalContent: string | JSX.Element;
 }
 
 function OpenButton({
   isCustom,
+  title,
   modalContent,
   children,
   ...rest
@@ -18,7 +20,7 @@ function OpenButton({
   }));
 
   const open = () => {
-    openModal({ content: modalContent });
+    openModal({ content: modalContent, title });
   };
 
   return isCustom ? (
