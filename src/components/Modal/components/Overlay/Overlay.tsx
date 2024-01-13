@@ -1,18 +1,17 @@
-import { ReactElement, cloneElement, useContext } from 'react';
-import { createPortal } from 'react-dom';
-import { ModalContext } from '../../hooks/useModalContext';
-export interface OverlayProps {
-  as: ReactElement;
-  portalId: string;
+import { useModalStore } from '../../hooks/modal';
+
+import './style.css';
+
+function Overlay() {
+  const { closeModal } = useModalStore((state) => ({
+    closeModal: state.closeModal,
+  }));
+
+  window.addEventListener('keyup', () => {
+    closeModal();
+  });
+
+  return <div className="overlay" onClick={closeModal} />;
 }
-
-const Overlay = ({ as, portalId }: OverlayProps) => {
-  const { isModalOpen, closeModal } = useContext(ModalContext);
-  const portal = document.getElementById(portalId);
-
-  return isModalOpen && portal
-    ? createPortal(cloneElement(as, { onClick: closeModal }), portal)
-    : null;
-};
 
 export default Overlay;
