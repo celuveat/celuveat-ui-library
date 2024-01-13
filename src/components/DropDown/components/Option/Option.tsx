@@ -6,32 +6,31 @@ import './style.css';
 
 type OptionProps = {
   isCustom?: boolean;
-  externalClick?: VoidFunction;
+  onClick?: VoidFunction;
 };
 
 const Option = <T extends ElementType = 'div'>({
   as,
   isCustom,
   children,
-  externalClick,
+  onClick,
   ...rest
 }: Props<T, OptionProps>) => {
   const Element = as || 'div';
 
-  const onClickOption = () => {
-    if (!externalClick) return;
-    externalClick();
+  const externalClick = () => {
+    if (!onClick) return;
+    onClick();
   };
 
   if (isCustom) {
     return getCustomChildren(children, {
-      onClick: onClickOption,
       ...rest,
     });
   }
 
   return (
-    <Element className="option" onClick={onClickOption} {...rest}>
+    <Element className="option" onClick={externalClick} {...rest}>
       {children}
     </Element>
   );

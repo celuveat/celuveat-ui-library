@@ -7,13 +7,13 @@ import './style.css';
 
 export interface TriggerProps extends ComponentPropsWithoutRef<'button'> {
   isCustom?: boolean;
-  externalClick?: VoidFunction;
+  onClick?: VoidFunction;
 }
 
 export const Trigger = ({
   isCustom,
   children,
-  externalClick,
+  onClick,
   ...rest
 }: PropsWithChildren<TriggerProps>) => {
   const { toggle, close } = useDropDown();
@@ -21,23 +21,28 @@ export const Trigger = ({
   const triggerRef = useRef<HTMLButtonElement | null>(null);
   useOnClickOutside<HTMLButtonElement>(triggerRef, close);
 
-  const onClick = () => {
+  const externalClick = () => {
     toggle();
 
-    if (!externalClick) return;
-    externalClick();
+    if (!onClick) return;
+    onClick();
   };
 
   if (isCustom) {
     return getCustomChildren(children, {
       ref: triggerRef,
-      onClick,
+      onClick: externalClick,
       ...rest,
     });
   }
 
   return (
-    <button ref={triggerRef} className="trigger" onClick={onClick} {...rest}>
+    <button
+      ref={triggerRef}
+      className="trigger"
+      onClick={externalClick}
+      {...rest}
+    >
       {children}
     </button>
   );
