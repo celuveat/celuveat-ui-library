@@ -41,7 +41,7 @@ function Modal({
               <Content>
                 <Flex justify="space-between" align="center">
                   <StyledModalTitle>{title}</StyledModalTitle>
-                  <CloseButton isCustom>
+                  <CloseButton>
                     <ExitIcon />
                   </CloseButton>
                 </Flex>
@@ -58,7 +58,8 @@ function Modal({
 
 export default Modal;
 
-const StyledModalTitle = styled.h3`
+const StyledModalTitle = styled.span`
   font-size: 24px;
   line-height: 32px;
+  font-weight: 700;
 `;

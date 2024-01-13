@@ -1,4 +1,5 @@
 import { ComponentPropsWithoutRef } from 'react';
+import { styled } from 'styled-components';
 import { getCustomChildren } from '../../../../utils/getCustomChildren';
 import { useModalStore } from '../../hooks/modal';
 
@@ -26,10 +27,17 @@ function OpenButton({
   return isCustom ? (
     getCustomChildren(children, { onClick: open, ...rest })
   ) : (
-    <button className="open-button" onClick={open}>
+    <StyledButton className="open-button" onClick={open}>
       {children}
-    </button>
+    </StyledButton>
   );
 }
 
 export default OpenButton;
+
+const StyledButton = styled.button`
+  background: transparent;
+  outline: none;
+  border: none;
+  cursor: pointer;
+`;
