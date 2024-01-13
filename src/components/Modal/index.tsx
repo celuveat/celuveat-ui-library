@@ -1,14 +1,10 @@
-import Root from './components/Modal';
-import Closer from './components/Closer/Closer';
-import Content from './components/Content/Content';
-import Overlay from './components/Overlay/Overlay';
-import Trigger from './components/Trigger/Trigger';
+import Root from './components/Root';
+import CloseButton from './components/CloseButton';
+import OpenButton from './components/OpenButton';
 
-const Modal = Object.assign(Root, {
-  Trigger,
-  Overlay,
-  Content,
-  Closer,
+const DropDown = Object.assign(Root, {
+  CloseButton,
+  OpenButton,
 });
 
-export default Modal;
+export default DropDown;
