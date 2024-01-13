@@ -1,0 +1,23 @@
+.content {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 10;
+  width: '33%';
+  min-width: 500px;
+  max-width: 600px;
+  min-height: 100px;
+  max-height: 600px;
+  padding: 2rem;
+  border-radius: 5px;
+  background: white;
+  transition: transform ease 0.3s 0.1s;
+}
+
+.open-animation {
+  transform: translateY(0);
+}
+
+.close-animation {
+  transform: translateY(80px);
+}

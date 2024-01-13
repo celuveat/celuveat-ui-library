@@ -1,17 +1,22 @@
-import { ReactNode, useContext } from 'react';
-import { createPortal } from 'react-dom';
-import { ModalContext } from '../../hooks/useModalContext';
+import { ReactNode } from 'react';
+import { useModalStore } from '../../hooks/modal';
 
-export interface ContentProps {
+import './style.css';
+
+interface ContentProps {
   children: ReactNode;
-  portalId: string;
 }
 
-const Content = ({ children, portalId }: ContentProps) => {
-  const { isModalOpen } = useContext(ModalContext);
-  const portal = document.getElementById(portalId);
+function Content({ children }: ContentProps) {
+  const { isOpen } = useModalStore((state) => ({
+    isOpen: state.isOpen,
+  }));
 
-  return isModalOpen && portal ? createPortal(children, portal) : null;
-};
+  return (
+    <div className={`content ${isOpen ? 'open-animation' : 'close-animation'}`}>
+      {children}
+    </div>
+  );
+}
 
 export default Content;
