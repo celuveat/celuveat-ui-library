@@ -46,7 +46,7 @@ function Modal({
                   </CloseButton>
                 </Flex>
                 <StyledSpacer />
-                <div>{content}</div>
+                <StyledContent>{content}</StyledContent>
               </Content>
             </Wrapper>
           )}
@@ -63,9 +63,14 @@ const StyledModalTitle = styled.div`
   font-size: 20px;
   line-height: 32px;
   font-weight: bold;
+  color: black;
 `;
 
 const StyledSpacer = styled.div`
   width: 100%;
-  height: 20px;
+  height: 36px;
+`;
+
+const StyledContent = styled.div`
+  overflow-y: auto;
 `;

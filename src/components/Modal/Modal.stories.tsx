@@ -1,5 +1,6 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import type { StoryObj } from '@storybook/react';
+import styled from 'styled-components';
 import Modal from '.';
 
 import OpenButton from './components/OpenButton';
@@ -17,6 +18,12 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
+const StyledYellowBox = styled.div`
+  width: 100%;
+  height: 200px;
+  background: yellow;
+`;
+
 export const Primary: Story = {
   render: () => {
     return (
@@ -28,7 +35,16 @@ export const Primary: Story = {
         }}
       >
         <Modal portalElementId="modal" />
-        <OpenButton modalContent={'hi'} modalTitle="모달 열기 예제">
+        <OpenButton
+          modalContent={
+            <>
+              <StyledYellowBox />
+              <StyledYellowBox />
+              <StyledYellowBox />
+            </>
+          }
+          modalTitle="모달 열기 예제"
+        >
           모달 열기
         </OpenButton>
       </div>
