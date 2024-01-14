@@ -1,5 +1,4 @@
 import svgr from '@svgr/rollup';
-import url from '@rollup/plugin-url';
 import babel from '@rollup/plugin-babel';
 import commonjs from '@rollup/plugin-commonjs';
 import resolve from '@rollup/plugin-node-resolve';
@@ -27,8 +26,7 @@ export default [
       },
     ],
     plugins: [
-      url(),
-      svgr({ icon: true }),
+      svgr(),
       peerDepsExternal(),
       babel({
         babelHelpers: 'runtime',
