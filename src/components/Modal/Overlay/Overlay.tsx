@@ -1,4 +1,4 @@
-import { useModalStore } from '../../hooks/modal';
+import { useModalStore } from '../hooks/modal';
 
 import './style.css';
 

@@ -1,7 +1,7 @@
 import { styled } from 'styled-components';
 import { ComponentPropsWithoutRef } from 'react';
-import { getCustomChildren } from '../../../../utils/getCustomChildren';
-import { useModalStore } from '../../hooks/modal';
+import { useModalStore } from '../hooks/modal';
+import { getCustomChildren } from '../../../utils/getCustomChildren';
 
 interface CloseButtonProps extends ComponentPropsWithoutRef<'button'> {
   isCustom?: boolean;

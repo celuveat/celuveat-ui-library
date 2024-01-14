@@ -1,6 +1,6 @@
-import Root from './components/Root';
-import CloseButton from './components/CloseButton';
-import OpenButton from './components/OpenButton';
+import Root from './Root';
+import CloseButton from './CloseButton';
+import OpenButton from './OpenButton';
 
 const DropDown = Object.assign(Root, {
   CloseButton,

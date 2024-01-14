@@ -1,7 +1,8 @@
 import { ComponentPropsWithoutRef } from 'react';
 import { styled } from 'styled-components';
-import { getCustomChildren } from '../../../../utils/getCustomChildren';
-import { useModalStore } from '../../hooks/modal';
+
+import { useModalStore } from '../hooks/modal';
+import { getCustomChildren } from '../../../utils/getCustomChildren';
 
 interface OpenButtonProps extends ComponentPropsWithoutRef<'button'> {
   isCustom?: boolean;

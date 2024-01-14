@@ -5,11 +5,11 @@ import Content from './Content';
 import Overlay from './Overlay';
 import Wrapper from './Wrapper';
 
-import { useModalStore } from '../hooks/modal';
-import Flex from '../../layout/Flex';
+import { useModalStore } from './hooks/modal';
+import Flex from '../layout/Flex';
 import CloseButton from './CloseButton';
 
-import ExitIcon from '../../../assets/Icon/exit.svg';
+import ExitIcon from '../../assets/Icon/exit.svg';
 
 interface ModalProps {
   portalElementId: string;

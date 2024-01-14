@@ -3,7 +3,7 @@ import type { StoryObj } from '@storybook/react';
 import styled from 'styled-components';
 import Modal from '.';
 
-import OpenButton from './components/OpenButton';
+import OpenButton from './OpenButton';
 
 const meta = {
   title: 'UI/Modal',

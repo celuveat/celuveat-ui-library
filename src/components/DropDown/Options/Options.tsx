@@ -1,7 +1,8 @@
 import { ElementType } from 'react';
-import { Props } from '../../../../@types/props.type';
-import { getCustomChildren } from '../../../../utils/getCustomChildren';
-import { useDropDown } from '../../hooks/useDropDownContext';
+import { Props } from '../../../@types/props.type';
+import { getCustomChildren } from '../../../utils/getCustomChildren';
+import { useDropDown } from '../hooks/useDropDownContext';
+
 
 import './style.css';
 

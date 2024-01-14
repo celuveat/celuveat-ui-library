@@ -1,7 +1,7 @@
 import { ComponentPropsWithoutRef, PropsWithChildren, useRef } from 'react';
-import { getCustomChildren } from '../../../../utils/getCustomChildren';
-import { useDropDown } from '../../hooks/useDropDownContext';
-import useOnClickOutside from '../../hooks/useOnClickOutside';
+import { getCustomChildren } from '../../../utils/getCustomChildren';
+import { useDropDown } from '../hooks/useDropDownContext';
+import useOnClickOutside from '../hooks/useOnClickOutside';
 
 import './style.css';
 

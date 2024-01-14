@@ -1,7 +1,7 @@
-import Root from './components/Root';
-import Trigger from './components/Trigger';
-import Options from './components/Options';
-import Option from './components/Option/Option';
+import Root from './Root';
+import Trigger from './Trigger';
+import Options from './Options';
+import Option from './Option/Option';
 
 const DropDown = Object.assign(Root, {
   Trigger,
