@@ -45,6 +45,7 @@ function Modal({
                     <ExitIcon />
                   </CloseButton>
                 </Flex>
+                <StyledSpacer />
                 <div>{content}</div>
               </Content>
             </Wrapper>
@@ -58,8 +59,13 @@ function Modal({
 
 export default Modal;
 
-const StyledModalTitle = styled.span`
-  font-size: 24px;
+const StyledModalTitle = styled.div`
+  font-size: 20px;
   line-height: 32px;
-  font-weight: 700;
+  font-weight: bold;
+`;
+
+const StyledSpacer = styled.div`
+  width: 100%;
+  height: 20px;
 `;

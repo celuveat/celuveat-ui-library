@@ -28,7 +28,7 @@ export const Primary: Story = {
         }}
       >
         <Modal portalElementId="modal" />
-        <OpenButton modalContent={'hi'} title="모달 열기 예제">
+        <OpenButton modalContent={'hi'} modalTitle="모달 열기 예제">
           모달 열기
         </OpenButton>
       </div>
