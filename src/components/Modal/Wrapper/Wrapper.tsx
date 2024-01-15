@@ -21,14 +21,18 @@ function Wrapper({
 
   useEffect(() => {
     if (blockScrollOnMount) document.body.style.overflow = 'hidden';
-    window.addEventListener('keyup', () => {
-      closeModal();
+    window.addEventListener('keyup', (event) => {
+      if (event.keyCode === 27) {
+        closeModal();
+      }
     });
 
     return () => {
       document.body.style.removeProperty('overflow');
-      window.removeEventListener('keyup', () => {
-        closeModal();
+      window.removeEventListener('keyup', (event) => {
+        if (event.keyCode === 27) {
+          closeModal();
+        }
       });
     };
   }, [blockScrollOnMount]);
